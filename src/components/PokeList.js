@@ -2,7 +2,7 @@ import React from 'react';
 
 function PokeList({cards}) {
     
-    const cardItems = card.map((card) => {
+    const cardItems = cards.map((card) => {
         return <li>{card.name}</li>
     })
     
