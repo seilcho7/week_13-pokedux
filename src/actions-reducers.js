@@ -11,7 +11,8 @@ const VISIBILITY_CAUGHT = 'caught';
 const VISIBILITY_UNCAUGHT = 'uncaught';
 
 const initialState = {
-    ...initialCards, // This spreads the "cards": [...] into this spot in initialState
+    ...initialCards,
+    // This spreads the "cards": [...] into this spot in initialState
     // cards: innitialCards.cards  // This line is the equivalent of ...initialCards
     visibilityFilter: VISIBILITY_ALL
 };

@@ -8,26 +8,24 @@ function PokeList({visibilityFilter, cards, handleClick}) {
         }}>{card.name}</li>
     })
 
-    const caughtItems = cards.filter((caught) => {
-        // console.log(caught.isCaught);
-        return caught.isCaught === true
-        // return caughtItem
-        // return <li key={caught.id} onClick={() => {
-        //     handleClick(caught.id);
-        // }}>{caught.name}</li>
-        
-        // // card.isCaught.map(caught => {
-        // //     return <li key={caught.id} onClick={() => {
-        // //         handleClick(caught.id);
-        // //     }}>{caught.name}</li>
-
-        // // })
+    const caughtItems = cards.filter((card) => {
+        return card.isCaught === true
     })
 
-    const caught = caughtItems.map((caught) => {
-        return <li key={caught.id} onClick={() => {
-                handleClick(caught.id);
-            }}>{caught.name}</li>
+    const caught = caughtItems.map((card) => {
+        return <li key={card.id} onClick={() => {
+                handleClick(card.id);
+        }}>{card.name}</li>
+    })
+
+    const uncaughtItems = cards.filter((card) => {
+        return !card.isCaught
+    })
+
+    const uncaught = uncaughtItems.map((card) => {
+        return <li key={card.id} onClick={() => {
+            handleClick(card.id);
+        }}>{card.name}</li>
     })
 
 
@@ -35,7 +33,7 @@ function PokeList({visibilityFilter, cards, handleClick}) {
     
     return (
         <ul>
-            {visibilityFilter === "all" ? cardItems : caught}
+            {visibilityFilter === "all" ? cardItems : visibilityFilter ==="caught" ? caught : visibilityFilter === "uncaught" ? uncaught : null}
         </ul>
     )
 }
