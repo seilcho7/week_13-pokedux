@@ -1,8 +1,13 @@
 import React from 'react';
 
-function VisibilityButton({handleClick, label}) {
+function VisibilityButton({handleAll, handleCaught, handleUncaught}) {
+
     return (
-        <button onClick={handleClick}>{label}</button>
+        <div>
+            <button onClick={handleAll}>All</button>
+            <button onClick={handleCaught}>CAUGHT</button>
+            <button onClick={handleUncaught}>UNCAUGHT</button>
+        </div>
     );
 }
 
